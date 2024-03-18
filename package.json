@@ -1,5 +1,8 @@
 {
-  "name": "finsf-ui",
+  "name": "@polyakovd99/finsf-ui",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/PolyakovD99"
+  },
   "version": "1.0.0",
   "description": "finsfera UI library",
   "main": "dist/cjs/index.js",
@@ -24,6 +27,11 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/lab": "^5.0.0-alpha.168",
+    "@mui/material": "^5.15.13",
+    "@mui/styles": "^5.15.13",
     "tslib": "^2.6.2"
   }
 }
