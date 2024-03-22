@@ -1,9 +1,6 @@
 {
-  "name": "@polyakovd99/finsf-ui",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/PolyakovD99"
-  },
-  "version": "1.0.0",
+  "name": "finsf-ui",
+  "version": "1.0.5",
   "description": "finsfera UI library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,17 +18,17 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.65",
-    "react": "^18.2.0",
     "rollup": "^4.13.0",
     "rollup-plugin-dts": "^6.1.0",
-    "typescript": "^5.4.2"
-  },
-  "dependencies": {
+    "typescript": "^5.4.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/lab": "^5.0.0-alpha.168",
     "@mui/material": "^5.15.13",
     "@mui/styles": "^5.15.13",
     "tslib": "^2.6.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }
