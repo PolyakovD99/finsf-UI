@@ -1,5 +1,6 @@
 import type {} from "@mui/lab/themeAugmentation";
 import { createTheme, alpha } from "@mui/material/styles";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 declare module "@mui/material/styles" {
   interface BreakpointOverrides {
@@ -13,6 +14,42 @@ declare module "@mui/material/styles" {
     laptopL: true;
   }
 }
+
+interface TypographyOptionsWithFontFaceOverrides extends TypographyOptions {
+  fontFaceOverrides?: {
+    [fontFamilyName: string]: Array<{
+      fontFamily: string;
+      fontStyle: string;
+      fontWeight: number;
+      src: string;
+      unicodeRange: string;
+    }>;
+  };
+}
+
+const montserrat = {
+  fontFamily: "Montserrat",
+  fontStyle: "normal",
+  fontWeight: 400,
+  src: `
+    local('Montserrat'),
+    url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap') format('woff2')
+  `,
+  unicodeRange:
+    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
+};
+
+const montserratFontWeights = [300, 400, 500, 700].map((weight) => ({
+  fontFamily: "Montserrat",
+  fontStyle: "normal",
+  fontWeight: weight,
+  src: `
+    local('Montserrat'),
+    url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap') format('woff2')
+  `,
+  unicodeRange:
+    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
+}));
 
 const customTheme = createTheme({
   palette: {
@@ -42,7 +79,10 @@ const customTheme = createTheme({
   },
   typography: {
     fontFamily: "Montserrat, sans-serif",
-  },
+    fontFaceOverrides: {
+      Montserrat: [montserrat, ...montserratFontWeights],
+    },
+  } as TypographyOptionsWithFontFaceOverrides,
   components: {
     MuiAccordion: {
       styleOverrides: {
@@ -392,39 +432,5 @@ customTheme.typography.h2 = {
     lineHeight: "30px",
   },
 };
-
-const globalStyles = `
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 300;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap') format('woff2');
-  }
-`;
-
-const globalStyleElement = document.createElement("style");
-globalStyleElement.innerHTML = globalStyles;
-document.head.appendChild(globalStyleElement);
 
 export default customTheme;
