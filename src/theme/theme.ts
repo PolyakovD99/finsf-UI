@@ -393,4 +393,38 @@ customTheme.typography.h2 = {
   },
 };
 
+const globalStyles = `
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap') format('woff2');
+  }
+`;
+
+const globalStyleElement = document.createElement("style");
+globalStyleElement.innerHTML = globalStyles;
+document.head.appendChild(globalStyleElement);
+
 export default customTheme;
