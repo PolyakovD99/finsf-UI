@@ -1,6 +1,5 @@
 import type {} from "@mui/lab/themeAugmentation";
 import { createTheme, alpha } from "@mui/material/styles";
-import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 declare module "@mui/material/styles" {
   interface BreakpointOverrides {
@@ -15,42 +14,6 @@ declare module "@mui/material/styles" {
   }
 }
 
-interface TypographyOptionsWithFontFaceOverrides extends TypographyOptions {
-  fontFaceOverrides?: {
-    [fontFamilyName: string]: Array<{
-      fontFamily: string;
-      fontStyle: string;
-      fontWeight: number;
-      src: string;
-      unicodeRange: string;
-    }>;
-  };
-}
-
-const montserrat = {
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
-  fontWeight: 400,
-  src: `
-    local('Montserrat'),
-    url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap') format('woff2')
-  `,
-  unicodeRange:
-    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
-};
-
-const montserratFontWeights = [300, 400, 500, 700].map((weight) => ({
-  fontFamily: "Montserrat",
-  fontStyle: "normal",
-  fontWeight: weight,
-  src: `
-    local('Montserrat'),
-    url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap') format('woff2')
-  `,
-  unicodeRange:
-    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
-}));
-
 const customTheme = createTheme({
   palette: {
     primary: {
@@ -59,9 +22,9 @@ const customTheme = createTheme({
       light: "#6077C3",
     },
     secondary: {
-      main: "#DEEFFE",
-      dark: "#CBE3F9",
-      light: "#EBF6FF",
+      main: "#45A5FF",
+      dark: "#3D9CF5",
+      light: "#71BAFF",
       contrastText: "#5168B5",
     },
     error: {
@@ -77,12 +40,6 @@ const customTheme = createTheme({
       laptopL: 1440,
     },
   },
-  typography: {
-    fontFamily: "Montserrat, sans-serif",
-    fontFaceOverrides: {
-      Montserrat: [montserrat, ...montserratFontWeights],
-    },
-  } as TypographyOptionsWithFontFaceOverrides,
   components: {
     MuiAccordion: {
       styleOverrides: {
